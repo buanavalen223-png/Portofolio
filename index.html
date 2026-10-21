@@ -23,7 +23,8 @@
 </head>
 
 <body>
-    <!-- Sleek Modern Glow Cursor -->
+    <!-- Sleek Modern Glow Cursor & Scroll Progress -->
+    <div class="scroll-progress-bar" id="topScrollProgress"></div>
     <div class="cursor-dot"></div>
     <div class="cursor-glow"></div>
 
@@ -43,13 +44,20 @@
             </button>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="#about"><span class="nav-num">01.</span> About</a></li>
-                <li><a href="#skills"><span class="nav-num">02.</span> Skills</a></li>
-                <li><a href="#projects"><span class="nav-num">03.</span> Certificates</a></li>
-                <li><a href="#contact"><span class="nav-num">04.</span> Contact</a></li>
+                <li><a href="#about"><span class="nav-num">01.</span> <span data-i18n="nav_about">About</span></a></li>
+                <li><a href="#skills"><span class="nav-num">02.</span> <span data-i18n="nav_skills">Skills</span></a></li>
+                <li><a href="#labs"><span class="nav-num">03.</span> <span data-i18n="nav_labs">Projects</span></a></li>
+                <li><a href="#projects"><span class="nav-num">04.</span> <span data-i18n="nav_certs">Certificates</span></a></li>
+                <li><a href="#contact"><span class="nav-num">05.</span> <span data-i18n="nav_contact">Contact</span></a></li>
+                <li class="nav-lang-item">
+                    <button class="lang-switch-btn" id="langSwitchBtn" aria-label="Switch Language" title="Ganti Bahasa ID / EN">
+                        <i class="fas fa-globe"></i>
+                        <span id="currentLangLabel">EN</span>
+                    </button>
+                </li>
                 <li class="nav-cta-item">
                     <a href="mailto:buanavalen223@gmail.com" class="nav-cta-btn">
-                        <i class="fas fa-paper-plane"></i> Hire Me
+                        <i class="fas fa-paper-plane"></i> <span data-i18n="nav_hire">Hire Me</span>
                     </a>
                 </li>
             </ul>
@@ -60,56 +68,108 @@
 
         <!-- Hero Section -->
         <section class="hero-section" id="home">
-            <div class="hero-content">
-                <div class="status-pill">
-                    <span class="pulse-indicator"></span>
-                    <span>Available for Network & Security Roles</span>
-                </div>
+            <div class="hero-layout-grid">
+                <div class="hero-content">
+                    <div class="status-pill">
+                        <span class="pulse-indicator"></span>
+                        <span data-i18n="hero_status">Available for Network & Security Roles</span>
+                    </div>
 
-                <h1 class="hero-title">
-                    Building High-Performance &
-                    <span class="gradient-text">Secure Network Systems</span>
-                </h1>
+                    <h1 class="hero-title">
+                        <span data-i18n="hero_title_1">Building High-Performance &</span>
+                        <span class="gradient-text" data-i18n="hero_title_2">Secure Network Systems</span>
+                    </h1>
 
-                <p class="hero-description">
-                    Hi, I'm <strong class="text-white">Buana Valen Putrangga</strong>. A Network and Computer Systems Engineering specialist focused on scalable IT infrastructure, Cisco & MikroTik dynamic routing, and proactive cybersecurity architectures.
-                </p>
+                    <div class="hero-typing-line">
+                        <span class="typing-prefix">&gt; Specialized in:</span>
+                        <span class="typing-dynamic" id="heroTypingText">Cisco &amp; MikroTik Enterprise Routing</span>
+                        <span class="typing-cursor">|</span>
+                    </div>
 
-                <div class="hero-actions">
-                    <a href="#projects" class="btn btn-primary">
-                        <span>Explore Credentials</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-envelope"></i>
-                        <span>Get In Touch</span>
-                    </a>
-                </div>
+                    <p class="hero-description" data-i18n="hero_desc">
+                        Hi, I'm <strong class="text-white">Buana Valen Putrangga</strong>. A Network and Computer Systems Engineering specialist focused on scalable IT infrastructure, Cisco & MikroTik dynamic routing, and proactive cybersecurity architectures.
+                    </p>
 
-                <!-- Hero Quick Highlights -->
-                <div class="hero-highlights">
-                    <div class="highlight-item">
-                        <div class="highlight-icon"><i class="fas fa-award"></i></div>
-                        <div class="highlight-info">
-                            <span class="highlight-value">7+</span>
-                            <span class="highlight-label">Certified Credentials</span>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            <span data-i18n="hero_btn_certs">Explore Credentials</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#labs" class="btn btn-secondary">
+                            <i class="fas fa-diagram-project"></i>
+                            <span data-i18n="hero_btn_labs">View Lab Topologies</span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            <span data-i18n="hero_btn_contact">Get In Touch</span>
+                        </a>
+                    </div>
+
+                    <!-- Hero Quick Highlights -->
+                    <div class="hero-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fas fa-award"></i></div>
+                            <div class="highlight-info">
+                                <span class="highlight-value">7+</span>
+                                <span class="highlight-label" data-i18n="hero_stat_1">Certified Credentials</span>
+                            </div>
+                        </div>
+                        <div class="highlight-divider"></div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fas fa-network-wired"></i></div>
+                            <div class="highlight-info">
+                                <span class="highlight-value">Cisco & MikroTik</span>
+                                <span class="highlight-label" data-i18n="hero_stat_2">Enterprise Routing</span>
+                            </div>
+                        </div>
+                        <div class="highlight-divider"></div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon"><i class="fas fa-shield-halved"></i></div>
+                            <div class="highlight-info">
+                                <span class="highlight-value">Cybersecurity</span>
+                                <span class="highlight-label" data-i18n="hero_stat_3">Firewalls & Hardening</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="highlight-divider"></div>
-                    <div class="highlight-item">
-                        <div class="highlight-icon"><i class="fas fa-network-wired"></i></div>
-                        <div class="highlight-info">
-                            <span class="highlight-value">Cisco & MikroTik</span>
-                            <span class="highlight-label">Enterprise Routing</span>
+                </div>
+
+                <!-- Interactive Live CLI Network Terminal -->
+                <div class="hero-terminal-column">
+                    <div class="cyber-terminal" id="cyberTerminal">
+                        <div class="cyber-terminal-header">
+                            <div class="terminal-dots">
+                                <span class="dot-red"></span>
+                                <span class="dot-yellow"></span>
+                                <span class="dot-green"></span>
+                            </div>
+                            <div class="cyber-terminal-title">
+                                <i class="fas fa-terminal"></i> valen@core-router:~ (Interactive CLI)
+                            </div>
+                            <span class="terminal-live-badge"><span class="live-dot"></span> SSH READY</span>
                         </div>
-                    </div>
-                    <div class="highlight-divider"></div>
-                    <div class="highlight-item">
-                        <div class="highlight-icon"><i class="fas fa-shield-halved"></i></div>
-                        <div class="highlight-info">
-                            <span class="highlight-value">Cybersecurity</span>
-                            <span class="highlight-label">Firewalls & Hardening</span>
+
+                        <div class="cyber-terminal-body" id="terminalOutput">
+                            <div class="term-line"><span class="term-sys">[SYSTEM]</span> RouterOS &amp; Cisco IOS Telemetry Shell v4.2</div>
+                            <div class="term-line"><span class="term-sys">[AUTH]</span> Logged in as <strong class="text-cyan">guest@valenputra14.my.id</strong></div>
+                            <div class="term-line">Type <span class="term-cmd-chip" data-cmd="help">help</span> or click a command below to inspect system:</div>
                         </div>
+
+                        <div class="terminal-quick-chips">
+                            <button class="term-chip" data-cmd="help">help</button>
+                            <button class="term-chip" data-cmd="whoami">whoami</button>
+                            <button class="term-chip" data-cmd="skills">skills</button>
+                            <button class="term-chip" data-cmd="certs">certs</button>
+                            <button class="term-chip" data-cmd="ping">ping</button>
+                            <button class="term-chip" data-cmd="clear">clear</button>
+                        </div>
+
+                        <form class="cyber-terminal-input-bar" id="terminalForm" autocomplete="off">
+                            <span class="term-prompt">valen@core:~$</span>
+                            <input type="text" id="terminalInput" placeholder="Type command (e.g. help, skills, certs)..." aria-label="Terminal Command Input">
+                            <button type="submit" class="term-send-btn" aria-label="Execute Command">
+                                <i class="fas fa-level-down-alt fa-rotate-90"></i>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -118,39 +178,39 @@
         <!-- About Section -->
         <section id="about" class="section-container">
             <div class="section-header">
-                <span class="section-badge">// 01. ABOUT ME</span>
-                <h2 class="section-title">Background & Philosophy</h2>
-                <p class="section-subtitle">Transforming complex network topologies into secure, seamless, and resilient connectivity.</p>
+                <span class="section-badge" data-i18n="about_badge">// 01. ABOUT ME</span>
+                <h2 class="section-title" data-i18n="about_title">Background & Philosophy</h2>
+                <p class="section-subtitle" data-i18n="about_subtitle">Transforming complex network topologies into secure, seamless, and resilient connectivity.</p>
             </div>
 
             <div class="about-grid">
                 <div class="about-text-content">
-                    <p class="lead-text">
+                    <p class="lead-text" data-i18n="about_p1">
                         Hello! My name is <strong class="text-white">Buana Valen Putrangga</strong>. Born in Bekasi on February 14, 2006, I discovered my passion for computer systems through an obsession with how data moves across global backbones in milliseconds.
                     </p>
-                    <p>
+                    <p data-i18n="about_p2">
                         In my <span class="gradient-text-alt">Network and Computer Systems Engineering</span> studies, I do not just configure routers—I architect reliable, redundant communication pathways that stand strong against traffic surges and cyber threats.
                     </p>
-                    <p>
+                    <p data-i18n="about_p3">
                         Whether deploying enterprise <strong class="text-white">MikroTik RouterOS</strong> configurations, provisioning <strong class="text-white">Cisco VLANs & OSPF</strong> routing, or auditing network security with pfSense and penetration testing tools, I focus on precision, security, and uptime.
                     </p>
 
                     <div class="about-key-points">
                         <div class="key-point">
                             <i class="fas fa-check-circle"></i>
-                            <span>Enterprise Routing & Switching</span>
+                            <span data-i18n="about_kp1">Enterprise Routing & Switching</span>
                         </div>
                         <div class="key-point">
                             <i class="fas fa-check-circle"></i>
-                            <span>Firewall & VPN Security Architecture</span>
+                            <span data-i18n="about_kp2">Firewall & VPN Security Architecture</span>
                         </div>
                         <div class="key-point">
                             <i class="fas fa-check-circle"></i>
-                            <span>Server & Linux Virtualization</span>
+                            <span data-i18n="about_kp3">Server & Linux Virtualization</span>
                         </div>
                         <div class="key-point">
                             <i class="fas fa-check-circle"></i>
-                            <span>Clean UI/UX & Technical Design</span>
+                            <span data-i18n="about_kp4">Clean UI/UX & Technical Design</span>
                         </div>
                     </div>
                 </div>
@@ -165,7 +225,7 @@
                             <div class="badge-dot"></div>
                             <div>
                                 <div class="badge-title">Buana Valen Putrangga</div>
-                                <div class="badge-subtitle">Network & Systems Engineer</div>
+                                <div class="badge-subtitle" data-i18n="about_role">Network & Systems Engineer</div>
                             </div>
                         </div>
                     </div>
@@ -176,9 +236,9 @@
         <!-- Technical Skills Section -->
         <section id="skills" class="section-container">
             <div class="section-header">
-                <span class="section-badge">// 02. TECHNICAL CAPABILITIES</span>
-                <h2 class="section-title">Core Competencies & Stack</h2>
-                <p class="section-subtitle">A balanced fusion of low-level networking, defense security, and modern digital design.</p>
+                <span class="section-badge" data-i18n="skills_badge">// 02. TECHNICAL CAPABILITIES</span>
+                <h2 class="section-title" data-i18n="skills_title">Core Competencies & Stack</h2>
+                <p class="section-subtitle" data-i18n="skills_subtitle">A balanced fusion of low-level networking, defense security, and modern digital design.</p>
             </div>
 
             <div class="skills-grid">
@@ -188,14 +248,14 @@
                         <div class="skill-icon-wrap icon-cyan">
                             <i class="fas fa-network-wired"></i>
                         </div>
-                        <span class="skill-level">Proficient</span>
+                        <span class="skill-level" data-i18n="skill_lvl_1">Proficient</span>
                     </div>
-                    <h3>Network Engineering</h3>
-                    <p>Designing, configuring, and maintaining active enterprise network architectures with high reliability.</p>
+                    <h3 data-i18n="skill_1_title">Network Engineering</h3>
+                    <p data-i18n="skill_1_desc">Designing, configuring, and maintaining active enterprise network architectures with high reliability.</p>
                     
                     <div class="skill-progress-block">
                         <div class="skill-progress-header">
-                            <span>Practical Mastery</span>
+                            <span data-i18n="skill_1_bar">Practical Mastery</span>
                             <span class="progress-val">90%</span>
                         </div>
                         <div class="progress-bar-bg">
@@ -219,14 +279,14 @@
                         <div class="skill-icon-wrap icon-indigo">
                             <i class="fas fa-shield-halved"></i>
                         </div>
-                        <span class="skill-level">Advanced</span>
+                        <span class="skill-level" data-i18n="skill_lvl_2">Advanced</span>
                     </div>
-                    <h3>Cybersecurity & Systems</h3>
-                    <p>Hardening network parameters, monitoring threat traffic, and maintaining perimeter security.</p>
+                    <h3 data-i18n="skill_2_title">Cybersecurity & Systems</h3>
+                    <p data-i18n="skill_2_desc">Hardening network parameters, monitoring threat traffic, and maintaining perimeter security.</p>
                     
                     <div class="skill-progress-block">
                         <div class="skill-progress-header">
-                            <span>Security Hygiene</span>
+                            <span data-i18n="skill_2_bar">Security Hygiene</span>
                             <span class="progress-val">82%</span>
                         </div>
                         <div class="progress-bar-bg">
@@ -250,14 +310,14 @@
                         <div class="skill-icon-wrap icon-emerald">
                             <i class="fas fa-palette"></i>
                         </div>
-                        <span class="skill-level">Creative</span>
+                        <span class="skill-level" data-i18n="skill_lvl_3">Creative</span>
                     </div>
-                    <h3>UI/UX & Visual Design</h3>
-                    <p>Creating clean, intuitive interfaces, network topology diagrams, and structured technical documentation.</p>
+                    <h3 data-i18n="skill_3_title">UI/UX & Visual Design</h3>
+                    <p data-i18n="skill_3_desc">Creating clean, intuitive interfaces, network topology diagrams, and structured technical documentation.</p>
                     
                     <div class="skill-progress-block">
                         <div class="skill-progress-header">
-                            <span>Visual Execution</span>
+                            <span data-i18n="skill_3_bar">Visual Execution</span>
                             <span class="progress-val">85%</span>
                         </div>
                         <div class="progress-bar-bg">
@@ -276,13 +336,144 @@
             </div>
         </section>
 
+        <!-- Featured Infrastructure Labs & Architecture Section -->
+        <section id="labs" class="section-container">
+            <div class="section-header">
+                <span class="section-badge" data-i18n="labs_badge">// 03. INFRASTRUCTURE PORTFOLIO</span>
+                <h2 class="section-title" data-i18n="labs_title">Featured Network &amp; Security Labs</h2>
+                <p class="section-subtitle" data-i18n="labs_subtitle">Hands-on architectural deployments, enterprise routing topologies, and hardened server implementations.</p>
+            </div>
+
+            <div class="labs-grid">
+                <!-- Lab Project 1 -->
+                <article class="lab-card">
+                    <div class="lab-visual-header lab-bg-cyan">
+                        <div class="lab-topology-diagram">
+                            <div class="topo-node"><i class="fas fa-globe"></i><span>ISP WAN</span></div>
+                            <div class="topo-line"><span class="packet-dot"></span></div>
+                            <div class="topo-node node-core"><i class="fas fa-server"></i><span>Core OSPF</span></div>
+                            <div class="topo-line"><span class="packet-dot delay-1"></span></div>
+                            <div class="topo-node"><i class="fas fa-network-wired"></i><span>VLAN 10/20/30</span></div>
+                        </div>
+                        <span class="lab-status-tag"><i class="fas fa-circle-check"></i> Production Ready</span>
+                    </div>
+                    <div class="lab-content">
+                        <div class="lab-meta">
+                            <span class="lab-type">ENTERPRISE ROUTING</span>
+                            <span class="lab-protocol">OSPFv2 &bull; 802.1Q</span>
+                        </div>
+                        <h3 class="lab-title" data-i18n="lab_1_title">Multi-Area OSPF &amp; High-Availability Enterprise Campus Network</h3>
+                        <p class="lab-desc" data-i18n="lab_1_desc">
+                            Designed a redundant 3-tier hierarchical network combining Cisco Catalyst switches and MikroTik core routers with Inter-VLAN trunking, EtherChannel link aggregation, and automatic failover.
+                        </p>
+                        <div class="lab-metrics">
+                            <div class="metric-box">
+                                <span class="metric-val">99.98%</span>
+                                <span class="metric-lbl">Simulated Uptime</span>
+                            </div>
+                            <div class="metric-box">
+                                <span class="metric-val">&lt; 15ms</span>
+                                <span class="metric-lbl">Failover Convergence</span>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="tag">Cisco Packet Tracer</span>
+                            <span class="tag">MikroTik RouterOS</span>
+                            <span class="tag">OSPF Multi-Area</span>
+                            <span class="tag">VLAN Trunking</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Lab Project 2 -->
+                <article class="lab-card">
+                    <div class="lab-visual-header lab-bg-indigo">
+                        <div class="lab-topology-diagram">
+                            <div class="topo-node"><i class="fas fa-user-secret"></i><span>External</span></div>
+                            <div class="topo-line"><span class="packet-dot"></span></div>
+                            <div class="topo-node node-indigo"><i class="fas fa-shield-halved"></i><span>pfSense IDS</span></div>
+                            <div class="topo-line"><span class="packet-dot delay-1"></span></div>
+                            <div class="topo-node"><i class="fas fa-lock"></i><span>DMZ &amp; VPN</span></div>
+                        </div>
+                        <span class="lab-status-tag"><i class="fas fa-shield-virus"></i> Hardened</span>
+                    </div>
+                    <div class="lab-content">
+                        <div class="lab-meta">
+                            <span class="lab-type">CYBERSECURITY ARCHITECTURE</span>
+                            <span class="lab-protocol">WireGuard &bull; Suricata</span>
+                        </div>
+                        <h3 class="lab-title" data-i18n="lab_2_title">Zero-Trust Perimeter Firewall, IDS/IPS &amp; Encrypted VPN Gateway</h3>
+                        <p class="lab-desc" data-i18n="lab_2_desc">
+                            Deployed a multi-zone pfSense security perimeter separating LAN, Guest, and DMZ servers. Integrated deep packet inspection, strict ACL firewall rules, and encrypted site-to-site VPN tunnels.
+                        </p>
+                        <div class="lab-metrics">
+                            <div class="metric-box">
+                                <span class="metric-val">AES-256</span>
+                                <span class="metric-lbl">Tunnel Encryption</span>
+                            </div>
+                            <div class="metric-box">
+                                <span class="metric-val">Zero</span>
+                                <span class="metric-lbl">Unauthorized Leaks</span>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="tag">pfSense Firewall</span>
+                            <span class="tag">WireGuard VPN</span>
+                            <span class="tag">Access Control Lists</span>
+                            <span class="tag">Wireshark</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Lab Project 3 -->
+                <article class="lab-card">
+                    <div class="lab-visual-header lab-bg-emerald">
+                        <div class="lab-topology-diagram">
+                            <div class="topo-node"><i class="fas fa-linux"></i><span>Ubuntu VPS</span></div>
+                            <div class="topo-line"><span class="packet-dot"></span></div>
+                            <div class="topo-node node-emerald"><i class="fas fa-chart-line"></i><span>Zabbix Core</span></div>
+                            <div class="topo-line"><span class="packet-dot delay-1"></span></div>
+                            <div class="topo-node"><i class="fas fa-wifi"></i><span>RT-RW Net QoS</span></div>
+                        </div>
+                        <span class="lab-status-tag"><i class="fas fa-bolt"></i> Live Telemetry</span>
+                    </div>
+                    <div class="lab-content">
+                        <div class="lab-meta">
+                            <span class="lab-type">CLOUD &amp; ISP MANAGEMENT</span>
+                            <span class="lab-protocol">SNMPv3 &bull; Nginx SSL</span>
+                        </div>
+                        <h3 class="lab-title" data-i18n="lab_3_title">ISP / RT-RW Net Bandwidth Management &amp; Zabbix Server Monitoring</h3>
+                        <p class="lab-desc" data-i18n="lab_3_desc">
+                            Engineered an end-to-end residential ISP architecture featuring MikroTik Hierarchical Token Bucket (HTB) Simple Queues, hotspot billing portal, and 24/7 SNMP health alerts via Zabbix on Linux VPS.
+                        </p>
+                        <div class="lab-metrics">
+                            <div class="metric-box">
+                                <span class="metric-val">HTB QoS</span>
+                                <span class="metric-lbl">Anti-Bufferbloat</span>
+                            </div>
+                            <div class="metric-box">
+                                <span class="metric-val">24/7</span>
+                                <span class="metric-lbl">SNMP Node Alerts</span>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="tag">Linux Ubuntu Server</span>
+                            <span class="tag">Zabbix Monitoring</span>
+                            <span class="tag">Nginx &amp; SSL</span>
+                            <span class="tag">MikroTik QoS</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
         <!-- Certifications Section -->
         <section id="projects" class="section-container">
             <div class="section-header cert-section-header">
                 <div class="cert-header-text">
-                    <span class="section-badge">// 03. VERIFIED CREDENTIALS</span>
-                    <h2 class="section-title">Official Certifications</h2>
-                    <p class="section-subtitle">Globally accredited professional certifications earned in network infrastructure &amp; cybersecurity.</p>
+                    <span class="section-badge" data-i18n="certs_badge">// 04. VERIFIED CREDENTIALS</span>
+                    <h2 class="section-title" data-i18n="certs_title">Official Certifications</h2>
+                    <p class="section-subtitle" data-i18n="certs_subtitle">Globally accredited professional certifications earned in network infrastructure &amp; cybersecurity.</p>
                 </div>
 
                 <!-- Interactive Controls: Filter & Carousel Arrows -->
@@ -551,9 +742,9 @@
                     </div>
                 </div>
 
-                <span class="section-badge">// 04. GET IN TOUCH</span>
-                <h2 class="contact-title">Let's Collaborate on Future Infrastructure</h2>
-                <p class="contact-subtitle">
+                <span class="section-badge" data-i18n="contact_badge">// 05. GET IN TOUCH</span>
+                <h2 class="contact-title" data-i18n="contact_title">Let's Collaborate on Future Infrastructure</h2>
+                <p class="contact-subtitle" data-i18n="contact_subtitle">
                     I am actively seeking internship opportunities, infrastructure engineering roles, or collaborative tech projects. Reach out and let's start a conversation.
                 </p>
 
